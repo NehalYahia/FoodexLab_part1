@@ -9,7 +9,7 @@ import OldClientContent from "../../Components/addSample/OldClientContent";
 
 
 
-function AddCh_TestsForOldClient() {
+function AddChTestsForOldClient() {
 
 
     const [childData, setChildData] = useState({});
@@ -92,4 +92,4 @@ function AddCh_TestsForOldClient() {
     )
 
 }
-export default AddCh_TestsForOldClient;
+export default AddChTestsForOldClient;

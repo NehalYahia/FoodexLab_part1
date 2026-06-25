@@ -7,7 +7,7 @@ import Ch_SampleInfo from "../../Components/addSample/Ch_SampleInfo";
 import Ch_SampleTests from "../../Components/addSample/Ch_SampleTests";
 
 
-function AddCh_TestsForNewClient() {
+function AddChTestsForNewClient() {
 
 
     const [childData, setChildData] = useState({});
@@ -102,7 +102,7 @@ function AddCh_TestsForNewClient() {
     )
 
 }
-export default AddCh_TestsForNewClient;
+export default AddChTestsForNewClient;
 
 
 

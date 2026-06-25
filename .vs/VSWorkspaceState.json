@@ -7,10 +7,8 @@
     "\\src\\controlPanal\\Pages\\Chemistry",
     "\\src\\controlPanal\\Pages\\Microbiology",
     "\\src\\hooks",
-    "\\src\\ShareComponent",
-    "\\src\\website\\Components",
-    "\\src\\website\\pages"
+    "\\src\\ShareComponent"
   ],
-  "SelectedNode": "\\src\\controlPanal\\Pages\\Chemistry\\AddCh_TestsForOldClient.jsx",
+  "SelectedNode": "\\src\\App.js",
   "PreviewInSolutionExplorer": false
 }

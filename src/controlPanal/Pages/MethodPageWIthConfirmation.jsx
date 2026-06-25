@@ -76,7 +76,7 @@ function MethodPageWIth() {
                 result: sampleTestDetails.result ?? 0,
                 a: sampleTestDetails.a ?? 0,
                 b: sampleTestDetails.b ?? 0,
-                result: sampleTestDetails.result ?? 0,
+                //result: sampleTestDetails.result ?? 0,
                 Uexpand: sampleTestDetails.u_expended ?? 0,
                 exp: sampleTestDetails.u_expression ?? 0,
                 time: sampleTestDetails.testedAt ?? new Date().toISOString().slice(0, 16),
@@ -420,7 +420,7 @@ function MethodPageWIth() {
                                             volume: e.target.value,
                                         }))
                                     }
-                                    class="form-control p-4" placeholder="volume" aria-labelvolum="volume" aria-describedby="volume" />
+                                    class="form-control p-4" placeholder="volume" aria-label="volume" aria-describedby="volume" />
                             </div>
                             <div className="col-1"></div>
 
@@ -438,7 +438,7 @@ function MethodPageWIth() {
 
                             {/*<div class=" mb-3">*/}
                             {/*<span class="input-group-text" id="sum">Sum</span>*/}
-                            <input type="number"
+                            <input 
                                 value={rowsData.sum || sampleTestDetails.sum || ""}
                                 onChange={(e) =>
                                     setRowsData(prev => ({

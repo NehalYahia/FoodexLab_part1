@@ -13,8 +13,8 @@ import MethodPageDetection from './controlPanal/Pages/MethodPageDetection';
 import RequestedTestPage from './controlPanal/Pages/RequestedTestPage';
 import AddSampleNewClient from './controlPanal/Pages/Microbiology/AddSampleNewClient';
 import AddSampleOldClient from './controlPanal/Pages/Microbiology/AddSampleOldClient';
-import AddCh_TestsForNewClient from './controlPanal/Pages/Chemistry/AddCh_TestsForNewClient';
-import AddCh_TestsForOldClient from './controlPanal/Pages/Chemistry/AddCh_TestsForOldClient';
+import AddChTestsForNewClient from './controlPanal/Pages/Chemistry/AddCh_TestsForNewClient';
+import AddChTestsForOldClient from './controlPanal/Pages/Chemistry/AddCh_TestsForOldClient';
 import NewRequestedTest from './controlPanal/Pages/NewRequestedTest';
 import AllRequestedTests from './controlPanal/Pages/AllRequestedTests';
 import AddLabUser from './controlPanal/Pages/AddLabUser';
@@ -120,7 +120,7 @@ function App() {
                         path="/addSample/Ch/newClient"
                         element={
                             <ProtectedRoute>
-                                <AddCh_TestsForNewClient />
+                                <AddChTestsForNewClient />
                             </ProtectedRoute>
                         }
                     />
@@ -128,7 +128,7 @@ function App() {
                         path="/addSample/Ch/oldClient"
                         element={
                             <ProtectedRoute>
-                                <AddCh_TestsForOldClient />
+                                <AddChTestsForOldClient />
                             </ProtectedRoute>
                         }
                     />

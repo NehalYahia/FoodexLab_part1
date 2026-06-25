@@ -381,7 +381,7 @@ function MethodPageDetection() {
                                 <span class="input-group-text" id="volume">volume</span>
                                 <input type="text"
                                     value={sampleTestDetails.unit}
-                                    class="form-control" aria-labelvolum="volume" aria-describedby="volume" readonly />
+                                    class="form-control" aria-label="volume" aria-describedby="volume" readonly />
                             </div>
                             <div class="col-3 mb-3">
                                 <span class="input-group-text" id="time">Tested At</span>

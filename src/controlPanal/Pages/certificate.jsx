@@ -38,7 +38,7 @@ function Certifecate() {
             <div className="container m-5 bg-white" id="pdfDiv">
                 <div className="row p-4">
                     <img src="/imgs/logo.png"
-                        alt="Logo" class="col-3" alt="logo" />
+                        alt="Logo" class="col-3" />
                     <p class="col-7"></p>
                     <img class="col-1" src="/imgs/egac.png" alt="egac" />
                     <img class="col-1" src="/imgs/ilac.png" alt="ilac" />
