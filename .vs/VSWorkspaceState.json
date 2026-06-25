@@ -1,7 +1,6 @@
 {
   "ExpandedNodes": [
     "",
-    "\\src",
     "\\src\\controlPanal",
     "\\src\\controlPanal\\Pages",
     "\\src\\controlPanal\\Pages\\Chemistry",
@@ -9,6 +8,6 @@
     "\\src\\hooks",
     "\\src\\ShareComponent"
   ],
-  "SelectedNode": "\\src\\controlPanal\\Pages\\MethodPageDetection.jsx",
+  "SelectedNode": "\\package.json",
   "PreviewInSolutionExplorer": false
 }

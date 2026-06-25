@@ -3,24 +3,12 @@
   "WorkspaceRootPath": "D:\\frontend\\foodexinterface\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\frontend\\foodexinterface\\src\\controlPanal\\Pages\\Chemistry\\AddCh_TestsForNewClient.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\controlPanal\\Pages\\Chemistry\\AddCh_TestsForNewClient.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\frontend\\foodexinterface\\src\\App.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\App.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\frontend\\foodexinterface\\src\\controlPanal\\Pages\\Chemistry\\AddCh_TestsForOldClient.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\controlPanal\\Pages\\Chemistry\\AddCh_TestsForOldClient.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\frontend\\foodexinterface\\src\\controlPanal\\Pages\\certificate.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\controlPanal\\Pages\\certificate.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\frontend\\foodexinterface\\src\\controlPanal\\Pages\\MethodPageDetection.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\controlPanal\\Pages\\MethodPageDetection.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\frontend\\foodexinterface\\src\\controlPanal\\Pages\\MethodPageWIthConfirmation.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\controlPanal\\Pages\\MethodPageWIthConfirmation.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,79 +18,40 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{004be353-6879-467c-9d1e-9ac23cdf6d49}"
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "AddCh_TestsForOldClient.jsx",
-              "DocumentMoniker": "D:\\frontend\\foodexinterface\\src\\controlPanal\\Pages\\Chemistry\\AddCh_TestsForOldClient.jsx",
-              "RelativeDocumentMoniker": "src\\controlPanal\\Pages\\Chemistry\\AddCh_TestsForOldClient.jsx",
-              "ToolTip": "D:\\frontend\\foodexinterface\\src\\controlPanal\\Pages\\Chemistry\\AddCh_TestsForOldClient.jsx",
-              "RelativeToolTip": "src\\controlPanal\\Pages\\Chemistry\\AddCh_TestsForOldClient.jsx",
-              "ViewState": "AgIAAEkAAAAAAAAAAAAAAF4AAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2026-06-25T13:35:15.223Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "AddCh_TestsForNewClient.jsx",
-              "DocumentMoniker": "D:\\frontend\\foodexinterface\\src\\controlPanal\\Pages\\Chemistry\\AddCh_TestsForNewClient.jsx",
-              "RelativeDocumentMoniker": "src\\controlPanal\\Pages\\Chemistry\\AddCh_TestsForNewClient.jsx",
-              "ToolTip": "D:\\frontend\\foodexinterface\\src\\controlPanal\\Pages\\Chemistry\\AddCh_TestsForNewClient.jsx",
-              "RelativeToolTip": "src\\controlPanal\\Pages\\Chemistry\\AddCh_TestsForNewClient.jsx",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2026-06-25T13:34:49.878Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{004be353-6879-467c-9d1e-9ac23cdf6d49}"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "App.js",
-              "DocumentMoniker": "D:\\frontend\\foodexinterface\\src\\App.js",
-              "RelativeDocumentMoniker": "src\\App.js",
-              "ToolTip": "D:\\frontend\\foodexinterface\\src\\App.js",
-              "RelativeToolTip": "src\\App.js",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2026-06-25T13:34:24.372Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "MethodPageWIthConfirmation.jsx",
-              "DocumentMoniker": "D:\\frontend\\foodexinterface\\src\\controlPanal\\Pages\\MethodPageWIthConfirmation.jsx",
-              "RelativeDocumentMoniker": "src\\controlPanal\\Pages\\MethodPageWIthConfirmation.jsx",
-              "ToolTip": "D:\\frontend\\foodexinterface\\src\\controlPanal\\Pages\\MethodPageWIthConfirmation.jsx",
-              "RelativeToolTip": "src\\controlPanal\\Pages\\MethodPageWIthConfirmation.jsx",
-              "ViewState": "AgIAAJMBAAAAAAAAAAAAAKYBAABcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2026-06-25T13:07:49.594Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
               "Title": "MethodPageDetection.jsx",
               "DocumentMoniker": "D:\\frontend\\foodexinterface\\src\\controlPanal\\Pages\\MethodPageDetection.jsx",
               "RelativeDocumentMoniker": "src\\controlPanal\\Pages\\MethodPageDetection.jsx",
               "ToolTip": "D:\\frontend\\foodexinterface\\src\\controlPanal\\Pages\\MethodPageDetection.jsx",
               "RelativeToolTip": "src\\controlPanal\\Pages\\MethodPageDetection.jsx",
-              "ViewState": "AgIAAGkBAAAAAAAAAAAewH8BAABDAAAAAAAAAA==",
+              "ViewState": "AgIAAEsBAAAAAAAAAAAuwHEBAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2026-06-25T13:06:52.72Z",
+              "WhenOpened": "2026-06-25T15:59:19.372Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "certificate.jsx",
+              "DocumentMoniker": "D:\\frontend\\foodexinterface\\src\\controlPanal\\Pages\\certificate.jsx",
+              "RelativeDocumentMoniker": "src\\controlPanal\\Pages\\certificate.jsx",
+              "ToolTip": "D:\\frontend\\foodexinterface\\src\\controlPanal\\Pages\\certificate.jsx",
+              "RelativeToolTip": "src\\controlPanal\\Pages\\certificate.jsx",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAACgAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2026-06-25T15:57:52.271Z",
               "EditorCaption": ""
             }
           ]
