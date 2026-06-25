@@ -446,7 +446,13 @@ function MethodPageWIth() {
                                         sum: e.target.value,
                                     }))
                                 }
-                                class="form-control" type="hidden" placeholder="sum" aria-label="sum" aria-describedby="sum" readOnly />
+                                class="form-control"
+                                type="hidden"
+                                placeholder="sum"
+                                aria-label="sum"
+                                aria-describedby="sum"
+                                readOnly
+                            />
                             {/*</div>*/}
 
                             <div className="col-1"></div>
