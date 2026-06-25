@@ -1,0 +1,573 @@
+﻿import { useParams } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import UseApi from "../../hooks/main";
+import Navbar from "../Components/Navbar";
+
+
+function UpdateSample() {
+    const { id } = useParams();
+
+    const [rowsData, setRowsData] = useState({});
+    const [checkedMethods, setCheckedMethods] = useState({});
+    const [methodUnits, setMethodUnits] = useState({});
+
+    const { data: sampleTestDetails, loading6, error6, refetch1 } = UseApi({
+        url: `Sample/${id}`,
+
+    });
+    useEffect(() => {
+        if (sampleTestDetails) {
+            setRowsData(prev => ({
+                ...prev,
+                sampleCode: sampleTestDetails.sampleCode ?? "",
+                certCode: sampleTestDetails.certCode ?? "",
+                sampleTemp: sampleTestDetails.sampleTemp ?? "",
+                categoryCode: sampleTestDetails.categoryCode ?? "",
+                notes: sampleTestDetails.notes ?? "",
+                updatedBy: sampleTestDetails.updatedBy ?? "",
+                updatedAt: sampleTestDetails.updatedAt ?? "",
+                sampleDesc: sampleTestDetails.sampleDesc ?? "",
+                lotNumber: sampleTestDetails.lotNum ?? "",
+                typeCode: sampleTestDetails.typeCode ?? "",
+                sampleLabCode: sampleTestDetails.sampleLabCode ?? "",
+                respkBy: sampleTestDetails.respkBy ?? "",
+                uncertaintyValue: sampleTestDetails.uncertaintyValue ?? "",
+                conformityStatement: sampleTestDetails.conformityStatement ?? "",
+                reference: sampleTestDetails.reference ?? "",
+                ilac: sampleTestDetails.ilac ?? "",
+                accILAC: sampleTestDetails.accILAC ?? "",
+                testData: sampleTestDetails.testData ?? {}
+
+            }));
+        }
+    }, [sampleTestDetails]);
+
+   
+
+    function handleMethodCheck(testCode, requestedTestcode, methodCode, checked) {
+        setCheckedMethods((prev) => ({
+            ...prev,
+            [testCode]: {
+                ...(prev[testCode] || {}),
+                [requestedTestcode]: {
+                    ...(prev[testCode]?.[requestedTestcode] || {}),
+                    [methodCode]: checked
+                }
+            }
+        }));
+    }
+
+    function handleUnitChange(testCode, requestedTestcode, methodCode, value) {
+        setMethodUnits((prev) => ({
+            ...prev,
+            [testCode]: {
+                ...(prev[testCode] || {}),
+                [requestedTestcode]: {
+                    ...(prev[testCode]?.[requestedTestcode] || {}),
+                    [methodCode]: value
+                }
+            }
+        }));
+    }
+
+
+
+    const { data: SampleCategory, loading, error } = UseApi({
+        url: "SampleCategory/all",
+    });
+    
+
+    const { data: SampleType, loading2, error2 } = UseApi({
+        url: "SampleType/all",
+    });
+   
+    const { data: SampleLaboratory, loading1, error1 } = UseApi({
+        url: "SampleLaboratory/all",
+    });
+
+    const { data: tests, loading4, error4 } = UseApi({
+        url: "Test/allD",
+    });
+
+    const { sample, loading5, error5, refetch } = UseApi({
+        url: `Sample/${id}`,
+        method: "PUT",
+        autoFetch: false,
+    });
+
+    const handleClick = async (e) => {
+        e.preventDefault();
+        const selected = [];
+
+        Object.entries(checkedMethods).forEach(([testCode, reqs]) => {
+            Object.entries(reqs).forEach(([requestedTestcode, methodsObj]) => {
+                Object.entries(methodsObj).forEach(([methodCode, isChecked]) => {
+                    if (isChecked) {
+                        selected.push({
+                            testCode,
+                            requestedTestcode,
+                            methodCode,
+                            unit:
+                                methodUnits[testCode]?.[requestedTestcode]?.[methodCode] || ""
+                        });
+                    }
+                });
+            });
+        });
+
+        const row = rowsData;
+
+        const response = await refetch({
+            sampleCode: row.sampleCode,
+            certCode: row.certificateCode,
+            sampleTemp: row.sampleTemperature,
+            categoryCode: row.sampleCategory,
+            notes: row.notes,
+            updatedBy: row.updatedBy,
+            updatedAt: row.UPdatedAt,
+            sampleDesc: row.sampleDesc,
+            lotNumber: row.lotNum,
+            typeCode: row.sampleType,
+            sampleLabCode: row.sampleLaboratory,
+            respkBy: row.Responsible,
+            uncertaintyValue: row.uncertainty,
+            conformityStatement: row.conformity,
+            reference: row.reference,
+            ilac: row.ILAC,
+            accILAC: row.accILAC,
+            testData: {
+                ...row,
+                sampleTestsResults: selected }
+
+        });
+        if (response?.error) {
+            alert(response.error.message);
+        } else {
+            alert(response?.message || response?.data?.message || "Updated successfully");
+
+        }
+        console.log(selected);
+
+
+        console.log(response);
+
+    };
+
+    useEffect(() => {
+        if (!sampleTestDetails?.sampleTestsResults?.length) return;
+        if (!tests?.length) return;
+
+        const checked = {};
+        const units = {};
+
+        sampleTestDetails.sampleTestsResults.forEach(item => {
+            const testCode = item.test?.id; // أو item.test?.testCode لو متوفرة
+            const requestedTestcode = item.req?.id;
+            const methodCode = item.method?.id;
+
+            // ✔️ checkbox
+            checked[testCode] = checked[testCode] || {};
+            checked[testCode][requestedTestcode] = checked[testCode][requestedTestcode] || {};
+            checked[testCode][requestedTestcode][methodCode] = !!item.result2 || !!item.result; // حسب ما تحبي
+
+            // ✔️ unit
+            units[testCode] = units[testCode] || {};
+            units[testCode][requestedTestcode] = units[testCode][requestedTestcode] || {};
+            units[testCode][requestedTestcode][methodCode] = item.unit || "";
+        });
+
+        setCheckedMethods(checked);
+        setMethodUnits(units);
+
+    }, [sampleTestDetails, tests]);
+
+
+
+
+
+    if (loading) return <p>Loading Sample Categories...</p>;
+    if (error) return <p style={{ color: "red" }}>{error}</p>;
+
+    if (loading1) return <p>Loading Sample Laboratories...</p>;
+    if (error1) return <p style={{ color: "red" }}>{error1}</p>;
+
+    if (loading2) return <p>Loading Sample Types...</p>;
+    if (error2) return <p style={{ color: "red" }}>{error2}</p>;
+
+    if (loading4) return <p>Loading tests...</p>;
+    if (error4) return <p style={{ color: "red" }}>{error4}</p>;
+
+
+    console.log("render", sampleTestDetails);
+
+    return (
+        <div className="body">
+            <Navbar />
+            <h2 className="text-center title"> Update  Sample</h2>
+            {sampleTestDetails && (
+                <div className="row container d-flex justify-content-center mx-auto my-4" >
+                    <div className="col-9">
+                        <div class="mb-3">
+                            <label for="SampleDesc" class="form-label">Sample Description</label>
+                            <input type="text"
+                                className="form-control"
+                                id="SampleDesc"
+                                value={rowsData.sampleDesc || sampleTestDetails?.sampleDesc || ""}
+                                onChange={(e) =>
+                                    setRowsData(prev => ({
+                                        ...prev,
+                                        sampleDesc: e.target.value,
+                                    }))
+                                }
+                              />
+                        </div>
+                        <div class="mb-3">
+                            <label for="lotNum" class="form-label">Lot Number</label>
+                            <input type="text"
+                                className="form-control"
+                                id="lotNum"
+                                value={rowsData.lotNum || sampleTestDetails?.lotNum || ""}
+                                onChange={(e) =>
+                                    setRowsData(prev => ({
+                                        ...prev,
+                                        lotNum: e.target.value,
+                                    }))
+                                }
+                            />
+                               
+                        </div>
+                        <select class="form-select mb-3"
+                            value={rowsData.sampleLabCode || sampleTestDetails.sampleLabCode || ""}
+                            onChange={(e) => setRowsData(prev => ({
+                                ...prev,
+                                sampleLabCode: e.target.value,
+                            }))}
+
+                            aria-label="Default select example">
+                            <option selected>Sample Laboratory</option>
+                            {SampleLaboratory?.map((l) => (
+                                <option key={l.sampleLabCode} value={l.sampleLabCode}>{l.sampleLabName}</option>
+                            ))}
+                        </select>
+                        <select className="form-select mb-3"
+                            value={rowsData.typeCode || sampleTestDetails.typeCode || ""}
+                            onChange={(e) => setRowsData(prev => ({
+                                ...prev,
+                                typeCode: e.target.value,
+                            }))}
+                             aria-label="Default select example">
+                            <option selected>Sample Type</option>
+                            {SampleType?.map((t) => (
+                                <option key={t.typeCode} value={t.typeCode}>{t.typeName}</option>
+                            ))}
+                        </select>
+                        <div class="mb-3">
+                            <label for="responsible" class="form-label">Sample Responsible</label>
+                            <input type="text"
+                                className="form-control"
+                                id="responsible"
+                                value={rowsData.respkBy || sampleTestDetails?.respkBy || ""}
+                                onChange={(e) =>
+                                    setRowsData(prev => ({
+                                        ...prev,
+                                        respkBy: e.target.value,
+                                    }))
+                                }
+                               
+
+                            />
+                        </div>
+                        <div class="mb-3">
+                            <label for="SampleCode" class="form-label">Sample Code</label>
+                            <input type="text"
+                                className="form-control"
+                                id="SampleCode"
+                                value={rowsData.sampleCode || sampleTestDetails?.sampleCode || ""}
+                                onChange={(e) =>
+                                    setRowsData(prev => ({
+                                        ...prev,
+                                        sampleCode: e.target.value,
+                                    }))
+                                }
+                               
+                            />
+                        </div>
+
+                        {/*</div>*/}
+                        {/*<div className="col-6">*/}
+
+                        <div class="mb-3">
+                            <label for="CertificateCode" class="form-label">Certificate Code</label>
+                            <input type="text"
+                                className="form-control"
+                                id="CertificateCode"
+                                value={rowsData.certCode || sampleTestDetails?.certCode || ""}
+                                onChange={(e) =>
+                                    setRowsData(prev => ({
+                                        ...prev,
+                                        certCode: e.target.value,
+                                    }))
+                                }
+                              
+                            />
+                        </div>
+                        <div class="mb-3">
+                            <label for="SampleTemperature" class="form-label">Sample Temperature at receipt</label>
+                            <input type="text"
+                                className="form-control"
+                                id="SampleTemperature"
+                                value={rowsData.sampleTemp || sampleTestDetails?.sampleTemp || ""}
+                                onChange={(e) =>
+                                    setRowsData(prev => ({
+                                        ...prev,
+                                        sampleTemp: e.target.value,
+                                    }))
+                                }
+                                
+                            />
+                        </div>
+                        <select className="form-select mb-3"
+                            aria-label="Default select example"
+                            value={rowsData.categoryCode || sampleTestDetails?.categoryCode || ""}
+                            onChange={(e) =>
+                                setRowsData(prev => ({
+                                    ...prev,
+                                    categoryCode: e.target.value,
+                                }))
+                            }
+
+                          
+                        >
+                            <option selected>Sample Category</option>
+                            {SampleCategory?.map((c) => (
+                                <option value={c.categoryCode}>{c.categoryDesc}</option>
+                            ))}
+                        </select>
+                        <div class="mb-3">
+                            <label for="notes" class="form-label">Comment</label>
+                            <input type="text"
+                                className="form-control"
+                                id="notes"
+                                value={rowsData.notes || sampleTestDetails?.notes || ""}
+                                onChange={(e) =>
+                                    setRowsData(prev => ({
+                                        ...prev,
+                                        notes: e.target.value,
+                                    }))
+                                }
+                               
+
+                            />
+                        </div>
+                        <div class="mb-3">
+                            <label for="updatedBy" class="form-label">Updated By</label>
+                            <input type="text"
+                                className="form-control"
+                                id="updatedBy"
+                                value={rowsData.updatedBy || sampleTestDetails?.updatedBy || ""}
+                                onChange={(e) =>
+                                    setRowsData(prev => ({
+                                        ...prev,
+                                        updatedBy: e.target.value,
+                                    }))
+                                }
+                                readonly
+                            />
+                        </div>
+                        <input type="datetime-local"
+                            className="form-control"
+                            value={rowsData.updatedAt || sampleTestDetails?.updatedAt || new Date().toISOString().slice(0, 16)}
+                            onChange={(e) =>
+                                setRowsData(prev => ({
+                                    ...prev,
+                                    updatedAt: e.target.value,
+                                }))
+                            }
+                            hidden
+
+                        />
+                        {/*</div>*/}
+                        {/*<div className="col-12">*/}
+
+                        <div className="row">
+                            <p className="col-8 d-flex align-items-center">Uncertainty value</p>
+                            <label class="rocker rocker-small col-4">
+                                <input type="checkbox"
+                                    checked={rowsData.uncertaintyValue ?? sampleTestDetails?.uncertaintyValue ?? false}
+                                    onChange={(e) =>
+                                        setRowsData(prev => ({
+                                            ...prev,
+                                            uncertaintyValue: e.target.checked
+
+                                        }))}
+
+
+                                     />
+                                <span class="switch-left">Yes</span>
+                                <span class="switch-right">No</span>
+                            </label>
+                        </div>
+                        <div className="row">
+                            <p className="col-8 d-flex align-items-center">Conformity statement</p>
+                            <label class="rocker rocker-small col-4">
+                                <input type="checkbox"
+                                    checked={rowsData.conformityStatement ?? sampleTestDetails?.conformityStatement ?? false}
+                                    onChange={(e) =>
+                                        setRowsData(prev => ({
+                                            ...prev,
+                                            conformityStatement: e.target.checked
+
+                                        }))}
+
+                                     />
+                                <span class="switch-left">Yes</span>
+                                <span class="switch-right">No</span>
+                            </label>
+                        </div>
+                        <div class={`mb-3 ${rowsData.conformityStatement ? "visible" : "invisible"}`}>
+                            <label for="" class="form-label">incase of yes please mention the specs reference according to</label>
+                            <input type="text" class="form-control" id=""
+                                value={rowsData.reference || sampleTestDetails?.reference || ""}
+                                onChange={(e) =>
+                                    setRowsData(prev => ({
+                                        ...prev,
+                                        reference: e.target.value,
+                                    }))
+                                }
+                                />
+                        </div>
+                        <div className="row">
+                            <p className="col-8 d-flex align-items-center">Decision rule used is simple acceptanceas defined at ILAC G8</p>
+                            <label class="rocker rocker-small col-4">
+                                <input type="checkbox"
+                                    checked={rowsData.ILAC ?? sampleTestDetails?.ILAC ?? false}
+                                    onChange={(e) =>
+                                        setRowsData(prev => ({
+                                            ...prev,
+                                            ILAC: e.target.checked
+
+                                        }))}
+                                    />
+                                <span class="switch-left">Yes</span>
+                                <span class="switch-right">No</span>
+                            </label>
+                        </div>
+                        <div class={`mb-3 ${rowsData.ILAC ? "invisible" : "visible"}`}>
+                            <label for="" class="form-label">incase of no please mention which type of decision you chose ,according to ILAC G8</label>
+                            <input type="text" class="form-control" id=""
+                                value={rowsData.accILAC || sampleTestDetails?.accILAC || ""}
+                                onChange={(e) =>
+                                    setRowsData(prev => ({
+                                        ...prev,
+                                        accILAC: e.target.value,
+                                    }))
+                                }
+                                />
+                        </div>
+
+                    </div>
+                    <div className="col-12">
+
+                        {tests?.map((t) => (
+                            t.testCode === sampleTestDetails.sampleLabCode ?
+                            <div key={t.testCode} className="mb-5">
+                                <h2 className="mt-3 mb-2">{t.testName} Tests</h2>
+                                <p>{t.desc}</p>
+
+                                <table className="table table-bordered align-middle">
+                                    <thead className="table-light">
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Requested Test</th>
+                                            <th>Method</th>
+                                            <th>Unit</th>
+                                            <th>Select</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+
+                                        {t.requestedTests?.flatMap((r, rIndex) =>
+                                            r.methods && r.methods.length > 0
+                                                ? r.methods.map((m, mIndex) => (
+                                                    <tr key={`${r.requestedTestcode}-${m.methodCode}`}>
+                                                        <td>{`${rIndex + 1}.${mIndex + 1}`}</td>
+                                                        <td>{mIndex === 0 ? r.requestTestName : ""}</td>
+                                                        <td>{m.methodName}</td>
+
+                                                        <td>
+                                                            <input
+                                                                type="text"
+                                                                className={`form-control ${r.equation === "detection" ? "border border-danger " : ""}`}
+                                                                value={methodUnits[t.testCode]?.[r.requestedTestcode]?.[m.methodCode] || ""}
+                                                                onChange={(e) =>
+                                                                    handleUnitChange(t.testCode, r.requestedTestcode, m.methodCode, e.target.value)
+                                                                }
+                                                            />
+                                                        </td>
+
+                                                        <td>
+                                                            <label className="checkbox_container">
+                                                                <input
+                                                                    type="checkbox"
+                                                                    checked={
+                                                                        !!checkedMethods[t.testCode]?.[r.requestedTestcode]?.[m.methodCode]
+                                                                    }
+                                                                    
+                                                                    onChange={(e) =>
+                                                                        handleMethodCheck(
+                                                                            t.testCode,
+                                                                            r.requestedTestcode,
+                                                                            m.methodCode,
+                                                                            e.target.checked
+                                                                        )
+                                                                    }
+                                                                />
+                                                                <div className="checkmark"></div>
+                                                            </label>
+                                                        </td>
+                                                    </tr>
+                                                ))
+                                                : (
+                                                    <tr key={r.requestedTestcode}>
+                                                        <td>{rIndex + 1}</td>
+                                                        <td>{r.requestTestName}</td>
+                                                        <td colSpan="3" className="text-muted">
+                                                            No methods available
+                                                        </td>
+                                                    </tr>
+                                                )
+                                        )}
+                                    </tbody>
+                                </table>
+                            </div>
+                                    :""
+                ))}
+
+                        {/*<p className="accordion-header">*/}
+                        {/*    <button*/}
+                        {/*        onClick={handleSaveSelections}*/}
+                        {/*        className="collapsed"*/}
+                        {/*        type="button"*/}
+                        {/*        data-bs-toggle="collapse"*/}
+                        {/*        data-bs-target="#Test_Report_Requirment"*/}
+                        {/*        aria-expanded="false"*/}
+                        {/*        aria-controls="Test_Report_Requirment"*/}
+                        {/*    >*/}
+                        {/*        Next*/}
+                        {/*    </button>*/}
+                        {/*</p>*/}
+                    </div>
+                    {/*<div className="col-3"></div>*/}
+                    <div className="col-4">
+                        <button className="bg w-100 border rounded p-2 text-white" onClick={handleClick}>Update </button>
+
+                    </div>
+
+
+                </div>
+            )}
+        </div>
+    )
+}
+export default UpdateSample;

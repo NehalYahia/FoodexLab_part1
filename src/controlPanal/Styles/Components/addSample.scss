@@ -1,0 +1,399 @@
+
+@import "../../../shareStyle/vars";
+
+
+.input-group-text {
+    background-color: $mainColor;
+    color:white;
+    text-align:center;
+    display:block;
+}
+
+.form-control{
+    text-align:center;
+}
+.form-select {
+    text-align: center;
+    font-size:13px
+}
+
+
+.accordion-header {
+    button:not(.collapsed ) {
+        background-color: $mainColor; /* Example open background color */
+        color: white; /* Example open text color */
+    }
+}
+.accordion-collapse {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 20px;
+}
+
+.accordion-header{
+    background-color:white;
+    margin: 15px 0;
+    padding: 10px;
+}
+
+.accordion-header.active {
+    opacity: 1;
+    border: 2px solid green;
+}
+.accordion-header button {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    width: 100%;
+    height: 50px;
+    margin: 2px;
+}
+
+
+/* From Uiverse.io by elijahgummer */
+/* Hide the default checkbox */
+.checkbox_container input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkbox_container {
+    display: inline-block;
+    width: 30px;
+    position: relative;
+    cursor: pointer;
+    font-size: 20px;
+    user-select: none;
+    border: 3px solid #beddd0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 1.3em;
+    width: 1.3em;
+    background-color: #2dc38c;
+    border-bottom: 1.5px solid #2dc38c; /* Bottom stroke */
+    box-shadow: 0 0 1px #cef1e4, inset 0 -2.5px 3px #62eab8, inset 0 3px 3px rgba(0, 0, 0, 0.34); /* Inner shadow */
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out; /* Transition for smooth animation */
+}
+
+/* When the checkbox is checked, modify the checkmark appearance */
+.checkbox_container input:checked ~ .checkmark {
+    transform: translateY(-40px); /* Move up */
+    animation: wipeUp 0.6s ease-in-out forwards; /* Apply wipe animation */
+}
+
+/* When the checkbox is not checked, modify the checkmark appearance */
+.checkbox_container input:not(:checked) ~ .checkmark {
+    transform: translateY(40px); /* Move down */
+    animation: wipeDown 0.6s ease-in-out forwards; /* Apply wipe animation */
+}
+
+/* Keyframes for wipe animations */
+@keyframes wipeDown {
+    0% {
+        transform: translateY(0); /* Starting position */
+    }
+
+    100% {
+        transform: translateY(40px); /* End position */
+    }
+}
+
+@keyframes wipeUp {
+    0% {
+        transform: translateY(40); /* Starting position */
+    }
+
+    100% {
+        transform: translateY(0px); /* End position */
+    }
+}
+
+/* Create the checkmark/indicator */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.checkbox_container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkbox_container .checkmark:before {
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: 4px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    box-shadow: 0 4px 2px rgba(0, 0, 0, 0.34); /* Icon drop shadow */
+}
+
+
+
+/* From Uiverse.io by bandirevanth */
+/* Switch starts here */
+.rocker {
+/*    display: inline-block;
+*/    position: relative;
+    /*
+  SIZE OF SWITCH
+  ==============
+  All sizes are in em - therefore
+  changing the font-size here
+  will change the size of the switch.
+  See .rocker-small below as example.
+  */
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    color: #888;
+    width: 7em;
+    height: 4em;
+    overflow: hidden;
+    border-bottom: 0.5em solid #eee;
+}
+
+.rocker-small {
+    font-size: 0.75em;
+    /* Sizes the switch */
+    margin: 1em;
+}
+
+.rocker::before {
+    content: "";
+    position: absolute;
+    top: 0.5em;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #999;
+    border: 0.5em solid #eee;
+    border-bottom: 0;
+}
+
+.rocker input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.switch-left,
+.switch-right {
+    cursor: pointer;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.5em;
+    width: 3em;
+    transition: 0.2s;
+    user-select: none;
+}
+
+.switch-left {
+    height: 2.4em;
+    width: 2.75em;
+    left: 0.85em;
+    bottom: 0.4em;
+    background-color: #ddd;
+    transform: rotate(15deg) skewX(15deg);
+}
+
+.switch-right {
+    right: 0.5em;
+    bottom: 0;
+    background-color: #bd5757;
+    color: #fff;
+}
+
+    .switch-left::before,
+    .switch-right::before {
+        content: "";
+        position: absolute;
+        width: 0.4em;
+        height: 2.45em;
+        bottom: -0.45em;
+        background-color: #ccc;
+        transform: skewY(-65deg);
+    }
+
+.switch-left::before {
+    left: -0.4em;
+}
+
+.switch-right::before {
+    right: -0.375em;
+    background-color: transparent;
+    transform: skewY(65deg);
+}
+
+input:checked + .switch-left {
+    background-color: #0084d0;
+    color: #fff;
+    bottom: 0px;
+    left: 0.5em;
+    height: 2.5em;
+    width: 3em;
+    transform: rotate(0deg) skewX(0deg);
+}
+
+    input:checked + .switch-left::before {
+        background-color: transparent;
+        width: 3.0833em;
+    }
+
+    input:checked + .switch-left + .switch-right {
+        background-color: #ddd;
+        color: #888;
+        bottom: 0.4em;
+        right: 0.8em;
+        height: 2.4em;
+        width: 2.75em;
+        transform: rotate(-15deg) skewX(-15deg);
+    }
+
+        input:checked + .switch-left + .switch-right::before {
+            background-color: #ccc;
+        }
+
+/* Keyboard Users */
+input:focus + .switch-left {
+    color: #333;
+}
+
+input:checked:focus + .switch-left {
+    color: #fff;
+}
+
+input:focus + .switch-left + .switch-right {
+    color: #fff;
+}
+
+input:checked:focus + .switch-left + .switch-right {
+    color: #333;
+}
+
+
+
+/////////////// btn for chemistry tests
+
+.wrap {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Ch_btn {
+    min-width: 300px;
+    min-height: 60px;
+    display: inline-flex;
+    font-family: 'Nunito', sans-serif;
+    font-size: 22px;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 1.3px;
+    font-weight: 700;
+    color: white;
+    background: $mainColor;
+    background: linear-gradient(90deg, rgba(183,69,72,100) 0%, rgba(183,69,72,100) 100%);
+    border: none;
+    border-radius: 1000px;
+    box-shadow: 12px 12px 24px rgba(183,69,72,100);
+    transition: all 0.3s ease-in-out 0s;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    padding: 10px;
+}
+
+.Ch_btn::before {
+    content: '';
+    border-radius: 1000px;
+    min-width: calc(300px + 12px);
+    min-height: calc(60px + 12px);
+    border: 6px solid $mainColor;
+    box-shadow: 0 0 60px rgba(183,69,72,100);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: all .3s ease-in-out 0s;
+}
+
+.Ch_btn:hover,
+.Ch_btn:focus {
+    color: $mainColor;
+    transform: translateY(-6px);
+    background: white;
+}
+
+.Ch_btn:hover::before,
+.Ch_btn:focus::before {
+    opacity: 1;
+}
+
+.Ch_btn::after {
+    content: '';
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    border: 6px solid $mainColor;
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: ring 1.5s infinite;
+}
+
+.Ch_btn:hover::after,
+.Ch_btn:focus::after {
+    animation: none;
+    display: none;
+}
+
+@keyframes ring {
+    0% {
+        width: 30px;
+        height: 30px;
+        opacity: 1;
+    }
+
+    100% {
+        width: 300px;
+        height: 300px;
+        opacity: 0;
+    }
+}

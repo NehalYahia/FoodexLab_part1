@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\controlPanal",
+    "\\src\\controlPanal\\Pages",
+    "\\src\\controlPanal\\Pages\\Chemistry",
+    "\\src\\controlPanal\\Pages\\Microbiology",
+    "\\src\\hooks",
+    "\\src\\ShareComponent",
+    "\\src\\website\\Components",
+    "\\src\\website\\pages"
+  ],
+  "SelectedNode": "\\src\\controlPanal\\Pages\\Chemistry\\AddCh_TestsForOldClient.jsx",
+  "PreviewInSolutionExplorer": false
+}

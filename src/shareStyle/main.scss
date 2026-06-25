@@ -1,0 +1,185 @@
+/*@import "../controlPanal/Styles/Components/login";
+*/
+
+@import "../ShareComponent/ReactBits/TextType";
+@import "../ShareComponent/ReactBits/RollingGallery";
+@import "../ShareComponent/ReactBits/RotatingText";
+
+@import "../website/Styles/Components/WNavbar";
+@import "../website/Styles/Components/WaddSampleBtn";
+@import "../website/Styles/pages/WaddSample";
+@import "../website/Styles/pages/WHome";
+@import "../website/Styles/Components/CardService";
+
+@import "../controlPanal/Styles/Pages/AllSamples" ;
+/*@import "../controlPanal/Styles/Components/SideNav";
+*/@import "../controlPanal/Styles/Pages/signIn_signUp";
+@import "../controlPanal/Styles/Components/addSample";
+@import "../controlPanal/Styles/Components/Navbar";
+@import "../controlPanal/Styles/controlPanal";
+
+
+.bg{
+    background-color:$mainColor
+}
+
+.main_color {
+    color: $mainColor;
+}
+/*.btn {
+    background-color: #8DC63F;
+}
+
+.nav_bg {*/
+/*    background-color: aqua;
+*//*}
+
+.register {
+    background: #164277;
+    background: linear-gradient(180deg, rgba(22, 66, 119, 0.83) 0%, rgba(250, 247, 242, 0.26) 50%, rgba(141, 198, 63, 0.76) 100%);
+    background: #164277;
+    background: linear-gradient(180deg, rgba(22, 66, 119, 0.32) 0%, rgba(250, 247, 242, 0.26) 50%, rgba(141, 198, 63, 0.33) 100%);
+    height: 100vh;
+}
+
+.register_form, .login_form {
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+    
+
+.welcomeback {
+    background-color: #164277;
+    clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
+
+
+}
+
+
+.welcomeback_p {
+    font-size: 5rem;
+    font-weight: bold;
+    color: transparent;
+    background-image: url('https://res.cloudinary.com/dlmfgaa0n/image/upload/v1760204104/download_p7i2km.webp');
+    background-size: 150%;*/ /* Enlarged for smooth animation */
+    /*background-position: 0 50%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: animate-background 5s infinite alternate linear;
+}
+
+@keyframes animate-background {
+    0% {
+        background-position: 0 50%;
+    }
+
+    100% {
+        background-position: 100% 50%;
+    }
+}*/
+/*
+.login_form {
+    width: 75%;
+    height: 75%;
+}*/
+/*.glitch {
+    position: relative;
+    font-size: 71px;
+    font-weight: bold;
+    color: #FFFFFF;
+    letter-spacing: 3px;
+    z-index: 1;
+}
+
+    .glitch:before,
+    .glitch:after {
+        display: block;
+        content: attr(data-text);
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0.8;
+    }
+
+    .glitch:before {
+        animation: glitch-it 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+        color: #164277;
+        z-index: -1;
+    }
+
+    .glitch:after {
+        animation: glitch-it 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both infinite;
+        color: #8DC63F;
+        z-index: -2;
+    }
+
+.glitch-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #000000;
+}
+
+.glitch {
+    position: relative;
+    font-size: 71px;
+    font-weight: bold;
+    color: #FFFFFF;
+    letter-spacing: 3px;
+    z-index: 1;
+}
+
+    .glitch:before,
+    .glitch:after {
+        display: block;
+        content: attr(data-text);
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0.8;
+    }
+
+    .glitch:before {
+        animation: glitch-it 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+        color: #164277;
+        z-index: -1;
+    }
+
+    .glitch:after {
+        animation: glitch-it 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both infinite;
+        color: #8DC63F;
+        z-index: -2;
+    }
+
+@keyframes glitch-it {
+    0% {
+        transform: translate(0);
+    }
+
+    20% {
+        transform: translate(-2px, 2px);
+    }
+
+    40% {
+        transform: translate(-2px, -2px);
+    }
+
+    60% {
+        transform: translate(2px, 2px);
+    }
+
+    80% {
+        transform: translate(2px, -2px);
+    }
+
+    to {
+        transform: translate(0);
+    }
+}*/
+
+

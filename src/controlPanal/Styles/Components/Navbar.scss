@@ -1,0 +1,23 @@
+@import "../../../shareStyle/vars";
+
+
+.dropdown {
+    .dropdown-menu {
+        text-align: center;
+
+    }
+
+
+    a {
+        text-decoration: none;
+        color: black;
+
+        &:hover {
+            color: $mainColor;
+        }
+    }
+}
+
+
+
+
