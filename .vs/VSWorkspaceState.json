@@ -1,12 +1,6 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\src\\controlPanal",
-    "\\src\\controlPanal\\Pages",
-    "\\src\\controlPanal\\Pages\\Chemistry",
-    "\\src\\controlPanal\\Pages\\Microbiology",
-    "\\src\\hooks",
-    "\\src\\ShareComponent"
+    ""
   ],
   "SelectedNode": "\\package.json",
   "PreviewInSolutionExplorer": false

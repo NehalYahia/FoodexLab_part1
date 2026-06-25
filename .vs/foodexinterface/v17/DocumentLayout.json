@@ -44,7 +44,7 @@
               "RelativeDocumentMoniker": "package.json",
               "ToolTip": "D:\\frontend\\foodexinterface\\package.json",
               "RelativeToolTip": "package.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAdAAAAAAAAAA==",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAYwCIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2026-06-25T16:41:09.214Z",
               "EditorCaption": ""
@@ -59,8 +59,7 @@
               "RelativeToolTip": "package-lock.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-06-25T16:41:07.694Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-25T16:41:07.694Z"
             },
             {
               "$type": "Document",
@@ -84,8 +83,7 @@
               "RelativeToolTip": "src\\controlPanal\\Pages\\certificate.jsx",
               "ViewState": "AgIAAA8AAAAAAAAAAAAAACgAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2026-06-25T15:57:52.271Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-25T15:57:52.271Z"
             }
           ]
         }
